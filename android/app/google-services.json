@@ -1,0 +1,226 @@
+{
+  "project_info": {
+    "project_number": "41462628241",
+    "project_id": "geteatpos-4e3af",
+    "storage_bucket": "geteatpos-4e3af.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:41462628241:android:716294130fad2f94d36430",
+        "android_client_info": {
+          "package_name": "com.geteatpos.hosted"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "41462628241-6hrutkss0h4l8t4c2ehc4o9f5rab4h3m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuXBa6iJ8xSvxJiBz675clrjByBwt2UnA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "41462628241-6hrutkss0h4l8t4c2ehc4o9f5rab4h3m.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "41462628241-2j77aqq4lp8r6knpcep0oc5cvuogqn38.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.geteatpos.kiosk"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:41462628241:android:82a7024c26a227a0d36430",
+        "android_client_info": {
+          "package_name": "com.geteatpos.kiosk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "41462628241-6hrutkss0h4l8t4c2ehc4o9f5rab4h3m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuXBa6iJ8xSvxJiBz675clrjByBwt2UnA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "41462628241-6hrutkss0h4l8t4c2ehc4o9f5rab4h3m.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "41462628241-2j77aqq4lp8r6knpcep0oc5cvuogqn38.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.geteatpos.kiosk"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:41462628241:android:fb4f13f7e3256743d36430",
+        "android_client_info": {
+          "package_name": "com.geteatpos.kitchen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "41462628241-6hrutkss0h4l8t4c2ehc4o9f5rab4h3m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuXBa6iJ8xSvxJiBz675clrjByBwt2UnA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "41462628241-6hrutkss0h4l8t4c2ehc4o9f5rab4h3m.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "41462628241-2j77aqq4lp8r6knpcep0oc5cvuogqn38.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.geteatpos.kiosk"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:41462628241:android:318d9a18d8c32d9fd36430",
+        "android_client_info": {
+          "package_name": "com.geteatpos.manager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "41462628241-6hrutkss0h4l8t4c2ehc4o9f5rab4h3m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuXBa6iJ8xSvxJiBz675clrjByBwt2UnA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "41462628241-6hrutkss0h4l8t4c2ehc4o9f5rab4h3m.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "41462628241-2j77aqq4lp8r6knpcep0oc5cvuogqn38.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.geteatpos.kiosk"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:41462628241:android:b13b63854f66f572d36430",
+        "android_client_info": {
+          "package_name": "com.geteatpos.signages"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "41462628241-6hrutkss0h4l8t4c2ehc4o9f5rab4h3m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuXBa6iJ8xSvxJiBz675clrjByBwt2UnA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "41462628241-6hrutkss0h4l8t4c2ehc4o9f5rab4h3m.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "41462628241-2j77aqq4lp8r6knpcep0oc5cvuogqn38.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.geteatpos.kiosk"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:41462628241:android:fabb0ea49e948f38d36430",
+        "android_client_info": {
+          "package_name": "com.geteatpos.waiters"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "41462628241-6hrutkss0h4l8t4c2ehc4o9f5rab4h3m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuXBa6iJ8xSvxJiBz675clrjByBwt2UnA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "41462628241-6hrutkss0h4l8t4c2ehc4o9f5rab4h3m.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "41462628241-2j77aqq4lp8r6knpcep0oc5cvuogqn38.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.geteatpos.kiosk"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
