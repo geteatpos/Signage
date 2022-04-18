@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:41462628241:android:716294130fad2f94d36430",
+        "mobilesdk_app_id": "1:41462628241:android:d37d78bac174dcb0d36430",
         "android_client_info": {
-          "package_name": "com.geteatpos.hosted"
+          "package_name": "com.geteatpos.hostess"
         }
       },
       "oauth_client": [
@@ -151,9 +151,9 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:41462628241:android:b13b63854f66f572d36430",
+        "mobilesdk_app_id": "1:41462628241:android:fbacecd9731f1b7bd36430",
         "android_client_info": {
-          "package_name": "com.geteatpos.signages"
+          "package_name": "com.geteatpos.signage"
         }
       },
       "oauth_client": [

@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.geteatpos.signages">
+    package="com.geteatpos.signage">
    <application
-        android:label="signages"
+        android:label="signage"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

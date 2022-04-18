@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:signages/componentes/devices/device_add.dart';
+import 'package:signage/componentes/devices/device_add.dart';
 
 import '../componentes/devices/device_row.dart';
 import '../controllers/main_controller.dart';

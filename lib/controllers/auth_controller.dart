@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../models/user_model.dart';
-import '../screens/display_screen.dart';
+import '../screens/home_screen.dart';
 import '../screens/signin_screen.dart';
 import '../widgets/loading.dart';
 
@@ -52,7 +52,7 @@ class AuthController extends GetxController {
       debugPrint('Send to signin');
       Get.offAll(SigninScreen());
     } else {
-      Get.offAll(const DisplayScreen());
+      Get.offAll(const HomeScreen());
     }
   }
 

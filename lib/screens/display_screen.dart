@@ -2,9 +2,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:signages/controllers/main_controller.dart';
-import 'package:signages/models/device_info_model.dart';
-import 'package:signages/screens/home_screen.dart';
+import 'package:signage/controllers/main_controller.dart';
+import 'package:signage/models/device_info_model.dart';
+import 'package:signage/screens/home_screen.dart';
 
 import '../models/data_model.dart';
 

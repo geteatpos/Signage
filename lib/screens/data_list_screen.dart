@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:signages/models/data_model.dart';
+import 'package:signage/models/data_model.dart';
 
 import '../componentes/data/data_add.dart';
 import '../componentes/data/data_row.dart';

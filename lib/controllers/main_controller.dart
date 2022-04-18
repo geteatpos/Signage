@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get/get.dart';
-import 'package:signages/models/device_info_model.dart';
+import 'package:signage/models/device_info_model.dart';
 import 'package:uuid/uuid.dart';
 
 import '../models/data_model.dart';
@@ -29,7 +29,7 @@ class MainController extends GetxController {
 
   Stream<DeviceInfoModel> streamDeviceInfo(String deviceId) {
     return firestore
-        .collection('signagesDevices')
+        .collection('signageDevices')
         .doc(deviceId)
         .snapshots()
         .map((device) {
@@ -60,7 +60,7 @@ class MainController extends GetxController {
 
   Stream<List<GrupoModel>> streamGrupos(String restaurantId) {
     return firestore
-        .collection('signagesGrupos')
+        .collection('signageGrupos')
         .doc(restaurantId)
         .collection('items')
         .snapshots()
@@ -75,7 +75,7 @@ class MainController extends GetxController {
 
   Future<void> addGrupo(String restaurantId, String name) async {
     await FirebaseFirestore.instance
-        .collection('signagesGrupos')
+        .collection('signageGrupos')
         .doc(restaurantId)
         .collection('items')
         .doc()
@@ -86,7 +86,7 @@ class MainController extends GetxController {
 
   Stream<List<DeviceModel>> streamDevices(String restaurantId, String gropuId) {
     return firestore
-        .collection('signagesGrupos')
+        .collection('signageGrupos')
         .doc(restaurantId)
         .collection('items')
         .doc(gropuId)
@@ -104,7 +104,7 @@ class MainController extends GetxController {
   Future<void> addDevice(
       String restaurantId, String gropuId, String name, String deviceId) async {
     await FirebaseFirestore.instance
-        .collection('signagesGrupos')
+        .collection('signageGrupos')
         .doc(restaurantId)
         .collection('items')
         .doc(gropuId)
@@ -116,7 +116,7 @@ class MainController extends GetxController {
     });
 
     await FirebaseFirestore.instance
-        .collection('signagesDevices')
+        .collection('signageDevices')
         .doc(deviceId)
         .set({
       'restaurantId': restaurantId,
@@ -127,7 +127,7 @@ class MainController extends GetxController {
   Stream<List<DataModel>> streamDataDisplay(
       String restaurantId, String gropuId) {
     return firestore
-        .collection('signagesData')
+        .collection('signageData')
         .doc(restaurantId)
         .collection('grupos')
         .doc(gropuId)
@@ -144,10 +144,10 @@ class MainController extends GetxController {
 
   Future<void> addData(String restaurantId, String gropuId, String mediaType,
       File _photo) async {
-    String mediaUrl = await uploadImageToStorage('signages', _photo);
+    String mediaUrl = await uploadImageToStorage('signage', _photo);
 
     await FirebaseFirestore.instance
-        .collection('signagesData')
+        .collection('signageData')
         .doc(restaurantId)
         .collection('grupos')
         .doc(gropuId)

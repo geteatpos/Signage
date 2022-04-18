@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:signages/models/grupo_model.dart';
-import 'package:signages/screens/data_list_screen.dart';
+import 'package:signage/models/grupo_model.dart';
+import 'package:signage/screens/data_list_screen.dart';
 
 import '../../screens/display_list_screen.dart';
 

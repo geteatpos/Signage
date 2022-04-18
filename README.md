@@ -1,4 +1,4 @@
-# signages
+# signage
 
 A new Flutter project.
 

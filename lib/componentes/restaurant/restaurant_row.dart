@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:signages/screens/grupo_screen.dart';
+import 'package:signage/screens/grupo_screen.dart';
 
 import '../../models/restaurant_model.dart';
 

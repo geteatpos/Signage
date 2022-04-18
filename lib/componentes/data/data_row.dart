@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:signages/models/data_model.dart';
+import 'package:signage/models/data_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 class DataWidgetRow extends StatelessWidget {
