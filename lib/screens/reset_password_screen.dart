@@ -78,7 +78,7 @@ class ResetPasswordScreen extends StatelessWidget {
         child: Text(
           'auth.signInonResetPasswordLabelButton'.tr,
         ),
-        onPressed: () => Get.offAll(SigninScreen()),
+        onPressed: () => Get.offAll(() => SigninScreen()),
       );
     }
     return const SizedBox(width: 0, height: 0);

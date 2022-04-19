@@ -51,9 +51,9 @@ class AuthController extends GetxController {
 
     if (_firebaseUser == null) {
       debugPrint('Send to signin');
-      Get.offAll(SigninScreen());
+      Get.offAll(() => SigninScreen());
     } else {
-      Get.offAll(const DisplayScreen());
+      Get.offAll(() => const DisplayScreen());
     }
   }
 
