@@ -5,7 +5,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:signage/screens/display_screen.dart';
 
 import '../models/user_model.dart';
-//import '../screens/home_screen.dart';
 import '../screens/signin_screen.dart';
 import '../widgets/loading.dart';
 

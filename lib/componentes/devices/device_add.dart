@@ -23,6 +23,12 @@ class _AddDeviceState extends State<AddDevice> {
   final TextEditingController _controllerId = TextEditingController();
 
   @override
+  void initState() {
+    _controllerId.text = GetStorage().read("deviceId");
+    super.initState();
+  }
+
+  @override
   void dispose() {
     _controllerName.dispose();
     _controllerId.dispose();
