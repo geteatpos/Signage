@@ -1,7 +1,9 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:signage/componentes/data/data_carousel.dart';
 import 'package:signage/controllers/main_controller.dart';
 import 'package:signage/models/device_info_model.dart';
 import 'package:signage/screens/home_screen.dart';
@@ -34,24 +36,7 @@ class DisplayScreen extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       itemCount: dataList.length,
                       itemBuilder: (context, index) {
-                        var dato = dataList[index];
-                        return CarouselSlider(
-                          options: CarouselOptions(height: 400.0),
-                          items: dataList.map((item) {
-                            return Builder(
-                              builder: (BuildContext context) {
-                                return Container(
-                                  width: MediaQuery.of(context).size.width,
-                                  margin: const EdgeInsets.symmetric(
-                                      horizontal: 5.0),
-                                  decoration:
-                                      const BoxDecoration(color: Colors.amber),
-                                  child: const Placeholder(),
-                                );
-                              },
-                            );
-                          }).toList(),
-                        );
+                        return DataCarousel(listMedia: dataList);
                       },
                     );
                   }
