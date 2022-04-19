@@ -23,26 +23,33 @@ class DisplayScreen extends StatelessWidget {
               MainController.to.streamDeviceInfo(GetStorage().read('deviceId')),
           builder: (context, snapshotDeviceInfo) {
             if (snapshotDeviceInfo.connectionState == ConnectionState.active) {
-              var deviceInfo = snapshotDeviceInfo.data!;
-              return StreamBuilder<List<DataModel>>(
-                stream: MainController.to.streamDataDisplay(
-                    deviceInfo.restaurantId, deviceInfo.grupoId),
-                builder: (context, snapshotData) {
-                  if (snapshotData.connectionState == ConnectionState.active) {
-                    var dataList = snapshotData.data!;
-                    return ListView.builder(
-                      padding: const EdgeInsets.all(8.0),
-                      itemCount: dataList.length,
-                      itemBuilder: (context, index) {
-                        return DataCarousel(listMedia: dataList);
-                      },
+              if (snapshotDeviceInfo.hasData) {
+                var deviceInfo = snapshotDeviceInfo.data!;
+                return StreamBuilder<List<DataModel>>(
+                  stream: MainController.to.streamDataDisplay(
+                      deviceInfo.restaurantId, deviceInfo.grupoId),
+                  builder: (context, snapshotData) {
+                    if (snapshotData.connectionState ==
+                        ConnectionState.active) {
+                      var dataList = snapshotData.data!;
+                      return ListView.builder(
+                        padding: const EdgeInsets.all(8.0),
+                        itemCount: dataList.length,
+                        itemBuilder: (context, index) {
+                          return DataCarousel(listMedia: dataList);
+                        },
+                      );
+                    }
+                    return const Center(
+                      child: CircularProgressIndicator(),
                     );
-                  }
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                },
-              );
+                  },
+                );
+              } else {
+                return const Center(
+                  child: Text("No Data"),
+                );
+              }
             }
             return const Scaffold(
               body: Center(
