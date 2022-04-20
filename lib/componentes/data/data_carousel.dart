@@ -12,8 +12,14 @@ class DataCarousel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double height = MediaQuery.of(context).size.height;
     return CarouselSlider(
-      options: CarouselOptions(height: 400.0),
+      options: CarouselOptions(
+        height: height,
+        autoPlay: true,
+        aspectRatio: 2.0,
+        enlargeCenterPage: true,
+      ),
       items: listMedia.map((item) {
         return Builder(
           builder: (BuildContext context) {
