@@ -8,6 +8,7 @@ import 'package:signage/models/device_info_model.dart';
 import 'package:signage/screens/home_screen.dart';
 
 import '../models/data_model.dart';
+import '../utils/globals.dart';
 
 class DisplayScreen extends StatelessWidget {
   const DisplayScreen({Key? key}) : super(key: key);
@@ -17,8 +18,12 @@ class DisplayScreen extends StatelessWidget {
     debugPrint(GetStorage().read("deviceId"));
     return Scaffold(
       body: InkWell(
-        onTap: () {
-          Get.to(() => const HomeScreen());
+        onTap: () async {
+          var isTv = await Globals.isTV();
+
+          if (!isTv) {
+            Get.to(() => const HomeScreen());
+          }
         },
         child: StreamBuilder<DeviceInfoModel>(
           stream:
