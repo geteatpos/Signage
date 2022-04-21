@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 import 'package:signage/componentes/data/data_carousel.dart';
 import 'package:signage/controllers/main_controller.dart';
 import 'package:signage/models/device_info_model.dart';
@@ -13,6 +14,7 @@ class DisplayScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint(GetStorage().read("deviceId"));
     return Scaffold(
       body: InkWell(
         onTap: () {
@@ -46,8 +48,24 @@ class DisplayScreen extends StatelessWidget {
                   },
                 );
               } else {
-                return const Center(
-                  child: Text("No Data"),
+                return Center(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      QrImage(
+                        data: GetStorage().read("deviceId"),
+                        version: QrVersions.auto,
+                        size: 200.0,
+                      ),
+                      Text(
+                        GetStorage().read("deviceId"),
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
                 );
               }
             }

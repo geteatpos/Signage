@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:qr_flutter/qr_flutter.dart';
 
 import '../../controllers/main_controller.dart';
 
@@ -23,16 +24,31 @@ class _AddDeviceState extends State<AddDevice> {
   final TextEditingController _controllerId = TextEditingController();
 
   @override
-  void initState() {
-    _controllerId.text = GetStorage().read("deviceId");
-    super.initState();
-  }
-
-  @override
   void dispose() {
     _controllerName.dispose();
     _controllerId.dispose();
     super.dispose();
+  }
+
+  Future<void> scanQR() async {
+    String barcodeScanRes;
+    // Platform messages may fail, so we use a try/catch PlatformException.
+    try {
+      barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
+          '#ff6666', 'Cancel', true, ScanMode.QR);
+      debugPrint(barcodeScanRes);
+    } on PlatformException {
+      barcodeScanRes = 'Failed to get platform version.';
+    }
+
+    // If the widget was removed from the tree while the asynchronous platform
+    // message was in flight, we want to discard the reply rather than calling
+    // setState to update our non-existent appearance.
+    if (!mounted) return;
+
+    setState(() {
+      _controllerId.text = barcodeScanRes;
+    });
   }
 
   @override
@@ -40,6 +56,18 @@ class _AddDeviceState extends State<AddDevice> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Add Device"),
+        actions: [
+          IconButton(
+            onPressed: () => scanQR(),
+            icon: const Icon(Icons.qr_code_scanner),
+          ),
+          IconButton(
+            onPressed: () {
+              _controllerId.text = GetStorage().read("deviceId");
+            },
+            icon: const Icon(Icons.paste),
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -96,16 +124,6 @@ class _AddDeviceState extends State<AddDevice> {
                 },
                 child: const Text("Save"),
               ),
-              const SizedBox(
-                height: 10,
-              ),
-              Center(
-                child: QrImage(
-                  data: GetStorage().read("deviceId"),
-                  version: QrVersions.auto,
-                  size: 200.0,
-                ),
-              )
             ],
           ),
         ),

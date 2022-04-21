@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:signage/screens/display_screen.dart';
+import 'package:signage/utils/globals.dart';
 
 import '../models/user_model.dart';
 import '../screens/signin_screen.dart';
@@ -45,12 +46,17 @@ class AuthController extends GetxController {
     //get user data from firestore
     if (_firebaseUser?.uid != null) {
       firestoreUser.bindStream(streamFirestoreUser());
-      await isAdmin();
     }
 
     if (_firebaseUser == null) {
       debugPrint('Send to signin');
-      Get.offAll(() => SigninScreen());
+
+      var isTv = await Globals.isTV();
+      if (isTv) {
+        signInAnonymously();
+      } else {
+        Get.offAll(() => SigninScreen());
+      }
     } else {
       Get.offAll(() => const DisplayScreen());
     }
@@ -97,6 +103,16 @@ class AuthController extends GetxController {
     }
   }
 
+  signInAnonymously() async {
+    showLoadingIndicator();
+    try {
+      await _auth.signInAnonymously();
+      hideLoadingIndicator();
+    } catch (error) {
+      hideLoadingIndicator();
+    }
+  }
+
   Future<void> sendPasswordResetEmail(BuildContext context) async {
     showLoadingIndicator();
     try {
@@ -116,19 +132,6 @@ class AuthController extends GetxController {
           backgroundColor: Get.theme.snackBarTheme.backgroundColor,
           colorText: Get.theme.snackBarTheme.actionTextColor);
     }
-  }
-
-  isAdmin() async {
-    await getUser.then((user) async {
-      DocumentSnapshot adminRef =
-          await _db.collection('admin').doc(user.uid).get();
-      if (adminRef.exists) {
-        admin.value = true;
-      } else {
-        admin.value = false;
-      }
-      update();
-    });
   }
 
   // Sign out
