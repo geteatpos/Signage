@@ -17,16 +17,14 @@ class DataCarousel extends StatelessWidget {
       options: CarouselOptions(
         height: height,
         autoPlay: true,
-        aspectRatio: 2.0,
-        enlargeCenterPage: true,
+        viewportFraction: 1.0,
+        enlargeCenterPage: false,
       ),
       items: listMedia.map((item) {
         return Builder(
           builder: (BuildContext context) {
-            return Container(
+            return SizedBox(
               width: MediaQuery.of(context).size.width,
-              margin: const EdgeInsets.symmetric(horizontal: 5.0),
-              decoration: const BoxDecoration(color: Colors.amber),
               child: CachedNetworkImage(
                 imageUrl: item.mediaUrl,
                 imageBuilder: (context, imageProvider) => Container(
