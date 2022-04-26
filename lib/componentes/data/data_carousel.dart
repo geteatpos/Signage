@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:signage/models/data_model.dart';
+import 'package:signage/widgets/custom_spinner.dart';
 
 class DataCarousel extends StatelessWidget {
   final List<DataModel> listMedia;
@@ -36,7 +37,7 @@ class DataCarousel extends StatelessWidget {
                   ),
                 ),
                 placeholder: (context, url) =>
-                    const CircularProgressIndicator(),
+                    const CustomSpinner(),
                 errorWidget: (context, url, error) => const Icon(Icons.error),
               ),
             );

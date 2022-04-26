@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:signage/models/data_model.dart';
+import 'package:signage/widgets/custom_spinner.dart';
 
 import '../componentes/data/data_add.dart';
 import '../componentes/data/data_row.dart';
@@ -36,7 +37,7 @@ class DataListScreen extends StatelessWidget {
             );
           }
           return const Center(
-            child: CircularProgressIndicator(),
+            child: CustomSpinner(),
           );
         },
       ),
