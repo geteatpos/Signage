@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:signage/models/grupo_model.dart';
 import 'package:signage/screens/data_list_screen.dart';
 
+import '../../controllers/main_controller.dart';
 import '../../screens/display_list_screen.dart';
 
 class GrupoRow extends StatelessWidget {
@@ -33,7 +34,28 @@ class GrupoRow extends StatelessWidget {
                     restaurantId: restaurantId,
                     grupoId: grupo.id,
                   ));
-            } else {}
+            } else if (index == 3) {
+            } else {
+              Get.defaultDialog(
+                title: "Danger",
+                textConfirm: "Confirm",
+                textCancel: "Cancel",
+                middleText: "Are you sure to delete this item?",
+                cancel: ElevatedButton(
+                  onPressed: () {
+                    Get.back();
+                  },
+                  child: const Text("Cancel"),
+                ),
+                confirm: ElevatedButton(
+                  onPressed: () {
+                    MainController.to.deleteGrupo(restaurantId, grupo.id);
+                    Get.back();
+                  },
+                  child: const Text("Confirm"),
+                ),
+              );
+            }
           },
           itemBuilder: (context) => const [
             PopupMenuItem(
@@ -47,6 +69,10 @@ class GrupoRow extends StatelessWidget {
             PopupMenuItem(
               child: Text("Edit"),
               value: 3,
+            ),
+            PopupMenuItem(
+              child: Text("Delete"),
+              value: 4,
             ),
           ],
         ),

@@ -31,7 +31,11 @@ class DataListScreen extends StatelessWidget {
               itemCount: dataList.length,
               itemBuilder: (context, index) {
                 var dato = dataList[index];
-                return DataWidgetRow(dato: dato);
+                return DataWidgetRow(
+                  restaurantId: restaurantId,
+                  gropuId: grupoId,
+                  dato: dato,
+                );
               },
             );
           }

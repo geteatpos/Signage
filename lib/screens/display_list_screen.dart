@@ -32,6 +32,8 @@ class DisplayListScreen extends StatelessWidget {
               itemBuilder: (context, index) {
                 var device = devices[index];
                 return DeviceRow(
+                  restaurantId: restaurantId,
+                  gropuId: grupoId,
                   device: device,
                 );
               },

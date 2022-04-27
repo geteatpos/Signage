@@ -84,6 +84,15 @@ class MainController extends GetxController {
     });
   }
 
+  void deleteGrupo(String restaurantId, String gropuId) {
+    FirebaseFirestore.instance
+        .collection('signageGrupos')
+        .doc(restaurantId)
+        .collection('items')
+        .doc(gropuId)
+        .delete();
+  }
+
   Stream<List<DeviceModel>> streamDevices(String restaurantId, String gropuId) {
     return firestore
         .collection('signageGrupos')
@@ -124,6 +133,22 @@ class MainController extends GetxController {
     });
   }
 
+  void deleteDevice(String restaurantId, String gropuId, String deviceId) {
+    FirebaseFirestore.instance
+        .collection('signageGrupos')
+        .doc(restaurantId)
+        .collection('items')
+        .doc(gropuId)
+        .collection('devices')
+        .doc(deviceId)
+        .delete();
+
+    FirebaseFirestore.instance
+        .collection('signageDevices')
+        .doc(deviceId)
+        .delete();
+  }
+
   Stream<List<DataModel>> streamDataDisplay(
       String restaurantId, String gropuId) {
     return firestore
@@ -157,6 +182,17 @@ class MainController extends GetxController {
       'mediaType': mediaType,
       'mediaUrl': mediaUrl,
     });
+  }
+
+  void deleteData(String restaurantId, String gropuId, String dataId) {
+    FirebaseFirestore.instance
+        .collection('signageData')
+        .doc(restaurantId)
+        .collection('grupos')
+        .doc(gropuId)
+        .collection('items')
+        .doc(dataId)
+        .delete();
   }
 
   Future<String> uploadImageToStorage(String folder, File file) async {

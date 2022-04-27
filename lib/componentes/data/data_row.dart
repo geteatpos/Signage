@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:signage/models/data_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
+import '../../controllers/main_controller.dart';
+
 class DataWidgetRow extends StatelessWidget {
+  final String restaurantId;
+  final String gropuId;
   final DataModel dato;
   const DataWidgetRow({
     Key? key,
+    required this.restaurantId,
+    required this.gropuId,
     required this.dato,
   }) : super(key: key);
 
@@ -25,7 +32,27 @@ class DataWidgetRow extends StatelessWidget {
         ),
         trailing: IconButton(
           icon: const Icon(Icons.delete),
-          onPressed: () {},
+          onPressed: () {
+            Get.defaultDialog(
+              title: "Danger",
+              textConfirm: "Confirm",
+              textCancel: "Cancel",
+              middleText: "Are you sure to delete this item?",
+              cancel: ElevatedButton(
+                onPressed: () {
+                  Get.back();
+                },
+                child: const Text("Cancel"),
+              ),
+              confirm: ElevatedButton(
+                onPressed: () {
+                  MainController.to.deleteData(restaurantId, gropuId, dato.id);
+                  Get.back();
+                },
+                child: const Text("Confirm"),
+              ),
+            );
+          },
         ),
       ),
     );
