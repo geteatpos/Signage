@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:signage/controllers/main_controller.dart';
 import 'package:signage/models/grupo_model.dart';
-import 'package:signage/widgets/custom_spinner.dart';
 
 import '../componentes/grupo/grupo_add.dart';
 import '../componentes/grupo/grupo_row.dart';
@@ -35,7 +35,10 @@ class GrupoScreen extends StatelessWidget {
             );
           }
           return const Center(
-            child: CustomSpinner(),
+            child: SpinKitWanderingCubes(
+              size: 50,
+              color: Colors.black,
+            ),
           );
         },
       ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:signage/models/data_model.dart';
-import 'package:signage/widgets/custom_spinner.dart';
 
 import '../componentes/data/data_add.dart';
 import '../componentes/data/data_row.dart';
@@ -41,7 +41,10 @@ class DataListScreen extends StatelessWidget {
             );
           }
           return const Center(
-            child: CustomSpinner(),
+            child: SpinKitWanderingCubes(
+              size: 50,
+              color: Colors.black,
+            ),
           );
         },
       ),

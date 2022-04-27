@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:qr_flutter/qr_flutter.dart';
@@ -6,7 +7,6 @@ import 'package:signage/componentes/data/data_carousel.dart';
 import 'package:signage/controllers/main_controller.dart';
 import 'package:signage/models/device_info_model.dart';
 import 'package:signage/screens/home_screen.dart';
-import 'package:signage/widgets/custom_spinner.dart';
 
 import '../models/data_model.dart';
 import '../utils/globals.dart';
@@ -49,7 +49,10 @@ class DisplayScreen extends StatelessWidget {
                       );
                     }
                     return const Center(
-                      child: CustomSpinner(),
+                      child: SpinKitWanderingCubes(
+                        size: 50,
+                        color: Colors.black,
+                      ),
                     );
                   },
                 );
@@ -77,7 +80,10 @@ class DisplayScreen extends StatelessWidget {
             }
             return const Scaffold(
               body: Center(
-                child: CustomSpinner(),
+                child: SpinKitWanderingCubes(
+                  size: 50,
+                  color: Colors.black,
+                ),
               ),
             );
           },

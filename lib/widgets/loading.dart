@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:signage/widgets/custom_spinner.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 //loading indicator code is a modified and simplified version of this code
 //https://github.com/fayaz07/ots
@@ -62,7 +62,10 @@ Future<void> showLoadingIndicator(
     debugPrint('Showing loading overlay');
     Widget _child = const Center(
       child: SizedBox(
-        child: CustomSpinner(),
+        child: SpinKitWanderingCubes(
+          size: 50,
+          color: Colors.black,
+        ),
         width: 30,
         height: 30,
       ),

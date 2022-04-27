@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:signage/models/data_model.dart';
-import 'package:signage/widgets/custom_spinner.dart';
 
 class DataCarousel extends StatelessWidget {
   final List<DataModel> listMedia;
@@ -36,8 +36,10 @@ class DataCarousel extends StatelessWidget {
                     ),
                   ),
                 ),
-                placeholder: (context, url) =>
-                    const CustomSpinner(),
+                placeholder: (context, url) => const SpinKitWanderingCubes(
+                  size: 50,
+                  color: Colors.black,
+                ),
                 errorWidget: (context, url, error) => const Icon(Icons.error),
               ),
             );
