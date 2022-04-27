@@ -6,6 +6,7 @@ import 'package:signage/componentes/data/data_carousel.dart';
 import 'package:signage/controllers/main_controller.dart';
 import 'package:signage/models/device_info_model.dart';
 import 'package:signage/screens/home_screen.dart';
+import 'package:signage/widgets/custom_spinner.dart';
 
 import '../models/data_model.dart';
 import '../utils/globals.dart';
@@ -48,7 +49,7 @@ class DisplayScreen extends StatelessWidget {
                       );
                     }
                     return const Center(
-                      child: CircularProgressIndicator(),
+                      child: CustomSpinner(),
                     );
                   },
                 );
@@ -76,7 +77,7 @@ class DisplayScreen extends StatelessWidget {
             }
             return const Scaffold(
               body: Center(
-                child: CircularProgressIndicator(),
+                child: CustomSpinner(),
               ),
             );
           },

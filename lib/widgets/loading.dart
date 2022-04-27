@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:signage/widgets/custom_spinner.dart';
 
 //loading indicator code is a modified and simplified version of this code
 //https://github.com/fayaz07/ots
@@ -61,7 +62,7 @@ Future<void> showLoadingIndicator(
     debugPrint('Showing loading overlay');
     Widget _child = const Center(
       child: SizedBox(
-        child: CircularProgressIndicator(),
+        child: CustomSpinner(),
         width: 30,
         height: 30,
       ),

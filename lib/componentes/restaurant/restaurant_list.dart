@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:signage/controllers/main_controller.dart';
+import 'package:signage/widgets/custom_spinner.dart';
 
 import '../../models/restaurant_model.dart';
 import 'restaurant_row.dart';
@@ -27,7 +28,7 @@ class RestaurantList extends StatelessWidget {
           );
         }
         return const Center(
-          child: CircularProgressIndicator(),
+          child: CustomSpinner(),
         );
       },
     );

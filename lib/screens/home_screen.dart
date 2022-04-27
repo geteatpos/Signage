@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:signage/widgets/custom_spinner.dart';
 
 import '../componentes/restaurant/restaurant_list.dart';
 import '../componentes/restaurant/restaurant_list_byid.dart';
@@ -43,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
           }
           return const Scaffold(
             body: Center(
-              child: CircularProgressIndicator(),
+              child: CustomSpinner(),
             ),
           );
         },
