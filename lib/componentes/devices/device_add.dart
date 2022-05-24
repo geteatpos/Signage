@@ -4,7 +4,7 @@ import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-import '../../controllers/main_controller.dart';
+import '../../services/firestore_db.dart';
 
 class AddDevice extends StatefulWidget {
   final String restaurantId;
@@ -113,7 +113,7 @@ class _AddDeviceState extends State<AddDevice> {
               ElevatedButton(
                 onPressed: () async {
                   if (_controllerName.text.trim().isNotEmpty) {
-                    MainController.to.addDevice(
+                    FirestoreDB().addDevice(
                       widget.restaurantId,
                       widget.grupoId,
                       _controllerName.text.trim(),

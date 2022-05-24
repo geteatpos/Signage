@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:signage/models/grupo_model.dart';
 import 'package:signage/screens/data_list_screen.dart';
 
-import '../../controllers/main_controller.dart';
 import '../../screens/display_list_screen.dart';
+import '../../services/firestore_db.dart';
 
 class GrupoRow extends StatelessWidget {
   final String restaurantId;
@@ -49,7 +49,7 @@ class GrupoRow extends StatelessWidget {
                 ),
                 confirm: ElevatedButton(
                   onPressed: () {
-                    MainController.to.deleteGrupo(restaurantId, grupo.id);
+                    FirestoreDB().deleteGrupo(restaurantId, grupo.id);
                     Get.back();
                   },
                   child: const Text("Confirm"),

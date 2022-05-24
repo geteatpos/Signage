@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:signage/controllers/main_controller.dart';
-import 'package:signage/models/device_model.dart';
+
+import '../../models/device_model.dart';
+import '../../services/firestore_db.dart';
 
 class DeviceRow extends StatelessWidget {
   final String restaurantId;
@@ -46,8 +47,7 @@ class DeviceRow extends StatelessWidget {
               ),
               confirm: ElevatedButton(
                 onPressed: () {
-                  MainController.to
-                      .deleteDevice(restaurantId, gropuId, device.id);
+                  FirestoreDB().deleteDevice(restaurantId, gropuId, device.id);
                   Get.back();
                 },
                 child: const Text("Confirm"),

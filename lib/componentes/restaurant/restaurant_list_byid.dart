@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:signage/controllers/main_controller.dart';
 
 import '../../models/restaurant_model.dart';
+import '../../services/firestore_db.dart';
 import 'restaurant_row.dart';
 
 class RestaurantById extends StatelessWidget {
@@ -15,7 +15,7 @@ class RestaurantById extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<RestaurantModel>(
-      stream: MainController.to.streamRestaurantById(restaurantId),
+      stream: FirestoreDB().streamRestaurantById(restaurantId),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.active) {
           return GestureDetector(

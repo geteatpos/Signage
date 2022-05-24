@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
-import 'package:signage/models/data_model.dart';
 
 import '../componentes/data/data_add.dart';
 import '../componentes/data/data_row.dart';
-import '../controllers/main_controller.dart';
+import '../models/data_model.dart';
+import '../services/firestore_db.dart';
 
 class DataListScreen extends StatelessWidget {
   final String restaurantId;
@@ -23,7 +23,7 @@ class DataListScreen extends StatelessWidget {
         title: const Text("Display Data"),
       ),
       body: StreamBuilder<List<DataModel>>(
-        stream: MainController.to.streamDataDisplay(restaurantId, grupoId),
+        stream: FirestoreDB().streamDataDisplay(restaurantId, grupoId),
         builder: (context, snapshotData) {
           if (snapshotData.connectionState == ConnectionState.active) {
             var dataList = snapshotData.data!;

@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 import 'package:signage/componentes/devices/device_add.dart';
 
 import '../componentes/devices/device_row.dart';
-import '../controllers/main_controller.dart';
 import '../models/device_model.dart';
+import '../services/firestore_db.dart';
 
 class DisplayListScreen extends StatelessWidget {
   final String restaurantId;
@@ -23,7 +23,7 @@ class DisplayListScreen extends StatelessWidget {
         title: const Text("Display List"),
       ),
       body: StreamBuilder<List<DeviceModel>>(
-        stream: MainController.to.streamDevices(restaurantId, grupoId),
+        stream: FirestoreDB().streamDevices(restaurantId, grupoId),
         builder: (context, snapshotDevices) {
           if (snapshotDevices.connectionState == ConnectionState.active) {
             var devices = snapshotDevices.data!;

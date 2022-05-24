@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 
 import '../componentes/restaurant/restaurant_list.dart';
 import '../componentes/restaurant/restaurant_list_byid.dart';
-import '../controllers/main_controller.dart';
 import '../models/user_model.dart';
+import '../services/firestore_db.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -15,8 +15,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final MainController mainController = MainController.to;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: StreamBuilder<UserModel>(
-        stream: mainController.streamUser(),
+        stream: FirestoreDB().streamUser(),
         builder: (context, snapshotUser) {
           if (snapshotUser.connectionState == ConnectionState.active) {
             var userModel = snapshotUser.data!;

@@ -3,13 +3,13 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:qr_flutter/qr_flutter.dart';
-import 'package:signage/componentes/data/data_carousel.dart';
-import 'package:signage/controllers/main_controller.dart';
-import 'package:signage/models/device_info_model.dart';
-import 'package:signage/screens/home_screen.dart';
 
+import '../componentes/data/data_carousel.dart';
 import '../models/data_model.dart';
+import '../models/device_info_model.dart';
+import '../services/firestore_db.dart';
 import '../utils/globals.dart';
+import 'home_screen.dart';
 
 class DisplayScreen extends StatelessWidget {
   const DisplayScreen({Key? key}) : super(key: key);
@@ -27,14 +27,13 @@ class DisplayScreen extends StatelessWidget {
           }
         },
         child: StreamBuilder<DeviceInfoModel>(
-          stream:
-              MainController.to.streamDeviceInfo(GetStorage().read('deviceId')),
+          stream: FirestoreDB().streamDeviceInfo(GetStorage().read('deviceId')),
           builder: (context, snapshotDeviceInfo) {
             if (snapshotDeviceInfo.connectionState == ConnectionState.active) {
               if (snapshotDeviceInfo.hasData) {
                 var deviceInfo = snapshotDeviceInfo.data!;
                 return StreamBuilder<List<DataModel>>(
-                  stream: MainController.to.streamDataDisplay(
+                  stream: FirestoreDB().streamDataDisplay(
                       deviceInfo.restaurantId, deviceInfo.grupoId),
                   builder: (context, snapshotData) {
                     if (snapshotData.connectionState ==

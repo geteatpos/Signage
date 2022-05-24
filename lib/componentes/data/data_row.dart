@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:signage/models/data_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
-import '../../controllers/main_controller.dart';
+import '../../services/firestore_db.dart';
 
 class DataWidgetRow extends StatelessWidget {
   final String restaurantId;
@@ -46,7 +46,7 @@ class DataWidgetRow extends StatelessWidget {
               ),
               confirm: ElevatedButton(
                 onPressed: () {
-                  MainController.to.deleteData(restaurantId, gropuId, dato.id);
+                  FirestoreDB().deleteData(restaurantId, gropuId, dato.id);
                   Get.back();
                 },
                 child: const Text("Confirm"),

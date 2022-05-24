@@ -6,7 +6,6 @@ import 'package:platform_device_id/platform_device_id.dart';
 
 import 'controllers/auth_controller.dart';
 import 'controllers/language_controller.dart';
-import 'controllers/main_controller.dart';
 import 'controllers/theme_controller.dart';
 import 'utils/app_routes.dart';
 import 'utils/app_themes.dart';
@@ -25,7 +24,6 @@ void main() async {
   Get.put<AuthController>(AuthController());
   Get.put<ThemeController>(ThemeController());
   Get.put<LanguageController>(LanguageController());
-  Get.put<MainController>(MainController());
   runApp(const MyApp());
 }
 

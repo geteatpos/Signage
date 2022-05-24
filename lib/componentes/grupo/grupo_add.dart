@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:signage/controllers/main_controller.dart';
+
+import '../../services/firestore_db.dart';
 
 class AddGrupo extends StatefulWidget {
   final String restaurantId;
@@ -54,7 +55,7 @@ class _AddGrupoState extends State<AddGrupo> {
               ElevatedButton(
                 onPressed: () async {
                   if (_controller.text.trim().isNotEmpty) {
-                    MainController.to.addGrupo(
+                    FirestoreDB().addGrupo(
                       widget.restaurantId,
                       _controller.text.trim(),
                     );

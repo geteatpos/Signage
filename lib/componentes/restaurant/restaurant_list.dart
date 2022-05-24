@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:signage/controllers/main_controller.dart';
 
 import '../../models/restaurant_model.dart';
+import '../../services/firestore_db.dart';
 import 'restaurant_row.dart';
 
 class RestaurantList extends StatelessWidget {
@@ -11,7 +11,7 @@ class RestaurantList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<List<RestaurantModel>>(
-      stream: MainController.to.streamRestaurants(),
+      stream: FirestoreDB().streamRestaurants(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.active) {
           return ListView.builder(
