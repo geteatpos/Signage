@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:signage/componentes/devices/device_add.dart';
+import 'package:signage/services/firestore_device.dart';
 
 import '../componentes/devices/device_row.dart';
 import '../models/device_model.dart';
-import '../services/firestore_db.dart';
 
 class DisplayListScreen extends StatelessWidget {
   final String restaurantId;
@@ -23,7 +23,7 @@ class DisplayListScreen extends StatelessWidget {
         title: const Text("Display List"),
       ),
       body: StreamBuilder<List<DeviceModel>>(
-        stream: FirestoreDB().streamDevices(restaurantId, grupoId),
+        stream: FirestoreDevice.streamDevices(restaurantId, grupoId),
         builder: (context, snapshotDevices) {
           if (snapshotDevices.connectionState == ConnectionState.active) {
             var devices = snapshotDevices.data!;

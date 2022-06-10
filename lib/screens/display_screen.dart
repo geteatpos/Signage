@@ -3,11 +3,12 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:signage/services/firestore_data.dart';
+import 'package:signage/services/firestore_device.dart';
 
 import '../componentes/data/data_carousel.dart';
 import '../models/data_model.dart';
 import '../models/device_info_model.dart';
-import '../services/firestore_db.dart';
 import '../utils/globals.dart';
 import 'home_screen.dart';
 
@@ -27,13 +28,14 @@ class DisplayScreen extends StatelessWidget {
           }
         },
         child: StreamBuilder<DeviceInfoModel>(
-          stream: FirestoreDB().streamDeviceInfo(GetStorage().read('deviceId')),
+          stream:
+              FirestoreDevice.streamDeviceInfo(GetStorage().read('deviceId')),
           builder: (context, snapshotDeviceInfo) {
             if (snapshotDeviceInfo.connectionState == ConnectionState.active) {
               if (snapshotDeviceInfo.hasData) {
                 var deviceInfo = snapshotDeviceInfo.data!;
                 return StreamBuilder<List<DataModel>>(
-                  stream: FirestoreDB().streamDataDisplay(
+                  stream: FirestoreData.streamDataDisplay(
                       deviceInfo.restaurantId, deviceInfo.grupoId),
                   builder: (context, snapshotData) {
                     if (snapshotData.connectionState ==

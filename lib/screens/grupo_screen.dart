@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
+import 'package:signage/services/firestore_grupo.dart';
 
 import '../componentes/grupo/grupo_add.dart';
 import '../componentes/grupo/grupo_row.dart';
 import '../models/grupo_model.dart';
-import '../services/firestore_db.dart';
 
 class GrupoScreen extends StatelessWidget {
   final String restaurantId;
@@ -19,7 +19,7 @@ class GrupoScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text("Grupos")),
       body: StreamBuilder<List<GrupoModel>>(
-        stream: FirestoreDB().streamGrupos(restaurantId),
+        stream: FirestoreGrupo.streamGrupos(restaurantId),
         builder: (context, snapshotGrupos) {
           if (snapshotGrupos.connectionState == ConnectionState.active) {
             var grupos = snapshotGrupos.data!;

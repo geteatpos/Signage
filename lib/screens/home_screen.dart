@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
+import 'package:signage/services/firestore_user.dart';
 
 import '../componentes/restaurant/restaurant_list.dart';
 import '../componentes/restaurant/restaurant_list_byid.dart';
 import '../models/user_model.dart';
-import '../services/firestore_db.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -30,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: StreamBuilder<UserModel>(
-        stream: FirestoreDB().streamUser(),
+        stream: FirestoreUser.streamUser(),
         builder: (context, snapshotUser) {
           if (snapshotUser.connectionState == ConnectionState.active) {
             var userModel = snapshotUser.data!;

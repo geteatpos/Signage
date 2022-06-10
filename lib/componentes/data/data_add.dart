@@ -3,8 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-
-import '../../services/firestore_db.dart';
+import 'package:signage/services/firestore_data.dart';
 
 class DataAddScreen extends StatefulWidget {
   final String restaurantId;
@@ -94,7 +93,7 @@ class _DataAddScreenState extends State<DataAddScreen> {
               ElevatedButton(
                 onPressed: () async {
                   if (_photo != null) {
-                    FirestoreDB().addData(
+                    FirestoreData.addData(
                       widget.restaurantId,
                       widget.grupoId,
                       "image",
