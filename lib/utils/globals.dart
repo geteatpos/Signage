@@ -22,4 +22,7 @@ class Globals {
 
     return false;
   }
+
+  static const noImage =
+      "https://firebasestorage.googleapis.com/v0/b/geteatpos-4e3af.appspot.com/o/no-image-found.png?alt=media&token=2a7c91be-21f9-41f7-9f7c-23159878f09f";
 }
