@@ -17,7 +17,6 @@ void main() async {
   await Firebase.initializeApp();
   await GetStorage.init();
 
-  // 79d8467f732cfc91
   String? deviceId = await PlatformDeviceId.getDeviceId;
   await GetStorage().write('deviceId', deviceId);
 
