@@ -17,12 +17,13 @@ class UserModel {
 
   factory UserModel.fromDocumentSnapshot(
       {required DocumentSnapshot<Map<String, dynamic>> doc}) {
+    var user = doc.data()!;
     return UserModel(
       id: doc.id,
-      name: doc.data()!["name"],
-      email: doc.data()!["email"],
-      restaurantDefault: doc.data()!["restaurantDefault"],
-      role: doc.data()!["role"],
+      name: user["name"] ?? "",
+      email: user["email"] ?? "",
+      restaurantDefault: user["restaurantDefault"] ?? "",
+      role: user["role"] ?? "",
     );
   }
 }
