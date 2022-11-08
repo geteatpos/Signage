@@ -19,7 +19,8 @@ class DataCarousel extends StatelessWidget {
         height: height,
         autoPlay: true,
         viewportFraction: 1.0,
-        enlargeCenterPage: false,
+        enlargeCenterPage: true,
+        aspectRatio: 16 / 9,
       ),
       items: listMedia.map((item) {
         return Builder(

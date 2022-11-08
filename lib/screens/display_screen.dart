@@ -42,7 +42,6 @@ class DisplayScreen extends StatelessWidget {
                         ConnectionState.active) {
                       var dataList = snapshotData.data!;
                       return ListView.builder(
-                        padding: const EdgeInsets.all(8.0),
                         itemCount: dataList.length,
                         itemBuilder: (context, index) {
                           return DataCarousel(listMedia: dataList);
