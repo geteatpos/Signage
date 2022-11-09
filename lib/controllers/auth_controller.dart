@@ -15,24 +15,21 @@ class AuthController extends GetxController {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  FirebaseAuth auth = FirebaseAuth.instance;
 
   final FirebaseFirestore _db = FirebaseFirestore.instance;
 
-  Rxn<User> firebaseUser = Rxn<User>();
-
-  Rxn<UserModel> firestoreUser = Rxn<UserModel>();
-
-  final RxBool admin = false.obs;
+  late Rx<User?> firebaseUser;
 
   @override
   void onReady() async {
-    //run every time auth state changes
-    ever(firebaseUser, handleAuthChanged);
-
-    firebaseUser.bindStream(user);
-
     super.onReady();
+
+    firebaseUser = Rx<User?>(auth.currentUser);
+
+    firebaseUser.bindStream(auth.userChanges());
+
+    ever(firebaseUser, _setInitialScreen);
   }
 
   @override
@@ -42,15 +39,8 @@ class AuthController extends GetxController {
     super.onClose();
   }
 
-  handleAuthChanged(_firebaseUser) async {
-    //get user data from firestore
-    if (_firebaseUser?.uid != null) {
-      firestoreUser.bindStream(streamFirestoreUser());
-    }
-
-    if (_firebaseUser == null) {
-      debugPrint('Send to signin');
-
+  _setInitialScreen(User? user) async {
+    if (user == null) {
       var isTv = await Globals.isTV();
       if (isTv) {
         signInAnonymously();
@@ -62,13 +52,6 @@ class AuthController extends GetxController {
     }
   }
 
-  // Firebase user one-time fetch
-  Future<User> get getUser async => _auth.currentUser!;
-
-  // Firebase user a realtime stream
-  Stream<User?> get user => _auth.authStateChanges();
-
-  //Streams the firestore user from the firestore collection
   Stream<UserModel> streamFirestoreUser() {
     debugPrint('streamFirestoreUser()');
 
@@ -87,7 +70,7 @@ class AuthController extends GetxController {
   signInWithEmailAndPassword(BuildContext context) async {
     showLoadingIndicator();
     try {
-      await _auth.signInWithEmailAndPassword(
+      await auth.signInWithEmailAndPassword(
           email: emailController.text.trim(),
           password: passwordController.text.trim());
       emailController.clear();
@@ -106,7 +89,7 @@ class AuthController extends GetxController {
   signInAnonymously() async {
     showLoadingIndicator();
     try {
-      await _auth.signInAnonymously();
+      await auth.signInAnonymously();
       hideLoadingIndicator();
     } catch (error) {
       hideLoadingIndicator();
@@ -116,7 +99,7 @@ class AuthController extends GetxController {
   Future<void> sendPasswordResetEmail(BuildContext context) async {
     showLoadingIndicator();
     try {
-      await _auth.sendPasswordResetEmail(email: emailController.text);
+      await auth.sendPasswordResetEmail(email: emailController.text);
       hideLoadingIndicator();
       Get.snackbar(
           'auth.resetPasswordNoticeTitle'.tr, 'auth.resetPasswordNotice'.tr,
@@ -138,6 +121,6 @@ class AuthController extends GetxController {
   Future<void> signOut() {
     emailController.clear();
     passwordController.clear();
-    return _auth.signOut();
+    return auth.signOut();
   }
 }

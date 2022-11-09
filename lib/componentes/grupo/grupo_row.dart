@@ -59,20 +59,20 @@ class GrupoRow extends StatelessWidget {
           },
           itemBuilder: (context) => const [
             PopupMenuItem(
-              child: Text("Data"),
               value: 1,
+              child: Text("Data"),
             ),
             PopupMenuItem(
-              child: Text("Devices"),
               value: 2,
+              child: Text("Devices"),
             ),
             PopupMenuItem(
-              child: Text("Edit"),
               value: 3,
+              child: Text("Edit"),
             ),
             PopupMenuItem(
-              child: Text("Delete"),
               value: 4,
+              child: Text("Delete"),
             ),
           ],
         ),

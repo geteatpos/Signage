@@ -44,10 +44,10 @@ class SettingsScreen extends StatelessWidget {
         trailing: DropdownButton<String>(
           items: Globals.languageOptions
               .map((data) => DropdownMenuItem<String>(
+                    value: data.key,
                     child: Text(
                       data.value,
                     ),
-                    value: data.key,
                   ))
               .toList(),
           value: controller.currentLanguage,

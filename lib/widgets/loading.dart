@@ -60,14 +60,14 @@ Future<void> showLoadingIndicator(
     {bool isModal = true, Color? modalColor}) async {
   try {
     debugPrint('Showing loading overlay');
-    Widget _child = const Center(
+    Widget child = const Center(
       child: SizedBox(
+        width: 30,
+        height: 30,
         child: SpinKitWanderingCubes(
           size: 50,
           color: Colors.black,
         ),
-        width: 30,
-        height: 30,
       ),
     );
     await _showOverlay(
@@ -77,10 +77,10 @@ Future<void> showLoadingIndicator(
                 ModalBarrier(
                   color: modalColor,
                 ),
-                _child
+                child
               ],
             )
-          : _child,
+          : child,
     );
   } catch (err) {
     debugPrint('Exception showing loading overlay\n${err.toString()}');

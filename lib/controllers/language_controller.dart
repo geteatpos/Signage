@@ -19,10 +19,10 @@ class LanguageController extends GetxController {
 
   setInitialLocalLanguage() {
     if (currentLanguageStore.value == '') {
-      String _deviceLanguage = ui.window.locale.toString();
-      _deviceLanguage = _deviceLanguage.substring(0, 2);
+      String deviceLanguage = ui.window.locale.toString();
+      deviceLanguage = deviceLanguage.substring(0, 2);
       debugPrint(ui.window.locale.toString());
-      updateLanguage(_deviceLanguage);
+      updateLanguage(deviceLanguage);
     }
   }
 

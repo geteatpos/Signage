@@ -27,9 +27,9 @@ class FirestoreData {
     });
   }
 
-  static Future<void> addData(String restaurantId, String gropuId,
-      String mediaType, File _photo) async {
-    String mediaUrl = await uploadImageToStorage('signage', _photo);
+  static Future<void> addData(
+      String restaurantId, String gropuId, String mediaType, File photo) async {
+    String mediaUrl = await uploadImageToStorage('signage', photo);
 
     await _fireStoreDataCollection
         .doc(restaurantId)

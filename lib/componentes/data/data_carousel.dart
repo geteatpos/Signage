@@ -19,6 +19,7 @@ class DataCarousel extends StatelessWidget {
         height: height,
         autoPlay: true,
         viewportFraction: 1.0,
+        autoPlayInterval: const Duration(seconds: 15),
         enlargeCenterPage: true,
         aspectRatio: 16 / 9,
       ),
