@@ -1,15 +1,16 @@
 {
   "project_info": {
     "project_number": "41462628241",
+    "firebase_url": "https://geteatpos-4e3af-default-rtdb.firebaseio.com",
     "project_id": "geteatpos-4e3af",
     "storage_bucket": "geteatpos-4e3af.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:41462628241:android:d37d78bac174dcb0d36430",
+        "mobilesdk_app_id": "1:41462628241:android:510455cbc0263c6dd36430",
         "android_client_info": {
-          "package_name": "com.geteatpos.hostess"
+          "package_name": "com.geteatpos.calldelivery"
         }
       },
       "oauth_client": [
@@ -31,10 +32,82 @@
               "client_type": 3
             },
             {
-              "client_id": "41462628241-2j77aqq4lp8r6knpcep0oc5cvuogqn38.apps.googleusercontent.com",
+              "client_id": "41462628241-0136aebdl8e9396jlhn48p82sv1a2s05.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.geteatpos.kiosk"
+                "bundle_id": "com.geteatpos.GetKiosk"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:41462628241:android:24a0c7612b0d807cd36430",
+        "android_client_info": {
+          "package_name": "com.geteatpos.getpos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "41462628241-6hrutkss0h4l8t4c2ehc4o9f5rab4h3m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuXBa6iJ8xSvxJiBz675clrjByBwt2UnA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "41462628241-6hrutkss0h4l8t4c2ehc4o9f5rab4h3m.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "41462628241-0136aebdl8e9396jlhn48p82sv1a2s05.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.geteatpos.GetKiosk"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:41462628241:android:840fae1ba74ec1e5d36430",
+        "android_client_info": {
+          "package_name": "com.geteatpos.getwarehouse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "41462628241-6hrutkss0h4l8t4c2ehc4o9f5rab4h3m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuXBa6iJ8xSvxJiBz675clrjByBwt2UnA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "41462628241-6hrutkss0h4l8t4c2ehc4o9f5rab4h3m.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "41462628241-0136aebdl8e9396jlhn48p82sv1a2s05.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.geteatpos.GetKiosk"
               }
             }
           ]
@@ -67,10 +140,10 @@
               "client_type": 3
             },
             {
-              "client_id": "41462628241-2j77aqq4lp8r6knpcep0oc5cvuogqn38.apps.googleusercontent.com",
+              "client_id": "41462628241-0136aebdl8e9396jlhn48p82sv1a2s05.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.geteatpos.kiosk"
+                "bundle_id": "com.geteatpos.GetKiosk"
               }
             }
           ]
@@ -103,10 +176,10 @@
               "client_type": 3
             },
             {
-              "client_id": "41462628241-2j77aqq4lp8r6knpcep0oc5cvuogqn38.apps.googleusercontent.com",
+              "client_id": "41462628241-0136aebdl8e9396jlhn48p82sv1a2s05.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.geteatpos.kiosk"
+                "bundle_id": "com.geteatpos.GetKiosk"
               }
             }
           ]
@@ -139,10 +212,10 @@
               "client_type": 3
             },
             {
-              "client_id": "41462628241-2j77aqq4lp8r6knpcep0oc5cvuogqn38.apps.googleusercontent.com",
+              "client_id": "41462628241-0136aebdl8e9396jlhn48p82sv1a2s05.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.geteatpos.kiosk"
+                "bundle_id": "com.geteatpos.GetKiosk"
               }
             }
           ]
@@ -175,10 +248,10 @@
               "client_type": 3
             },
             {
-              "client_id": "41462628241-2j77aqq4lp8r6knpcep0oc5cvuogqn38.apps.googleusercontent.com",
+              "client_id": "41462628241-0136aebdl8e9396jlhn48p82sv1a2s05.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.geteatpos.kiosk"
+                "bundle_id": "com.geteatpos.GetKiosk"
               }
             }
           ]
@@ -211,10 +284,10 @@
               "client_type": 3
             },
             {
-              "client_id": "41462628241-2j77aqq4lp8r6knpcep0oc5cvuogqn38.apps.googleusercontent.com",
+              "client_id": "41462628241-0136aebdl8e9396jlhn48p82sv1a2s05.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.geteatpos.kiosk"
+                "bundle_id": "com.geteatpos.GetKiosk"
               }
             }
           ]
