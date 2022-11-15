@@ -16,21 +16,7 @@ import 'widgets/loading.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  if (!kIsWeb) {
-    await Firebase.initializeApp();
-  } else {
-    await Firebase.initializeApp(
-      options: const FirebaseOptions(
-        apiKey: "AIzaSyBTujTEITmnPR5q1dVLhL7kbTlvgwf-DHY",
-        authDomain: "geteatpos-4e3af.firebaseapp.com",
-        databaseURL: "https://geteatpos-4e3af-default-rtdb.firebaseio.com",
-        projectId: "geteatpos-4e3af",
-        storageBucket: "geteatpos-4e3af.appspot.com",
-        messagingSenderId: "41462628241",
-        appId: "1:41462628241:web:098a664d76f1ba44d36430",
-      ),
-    );
-  }
+  await Firebase.initializeApp();
 
   await GetStorage.init();
 
