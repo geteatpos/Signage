@@ -65,6 +65,8 @@ dependencies:
 
   lottie: ^2.0.0
   
+  video_player: ^2.4.7
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
