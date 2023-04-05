@@ -16,15 +16,12 @@ class DisplayVideo extends StatefulWidget {
 
 class _DisplayVideoState extends State<DisplayVideo> {
   late VideoPlayerController _controller;
-  late Future<void> initializeVideoPlayerFuture;
 
   @override
   void initState() {
     super.initState();
 
     _controller = VideoPlayerController.network(widget.item.mediaUrl);
-
-    initializeVideoPlayerFuture = _controller.initialize();
   }
 
   @override
@@ -34,17 +31,22 @@ class _DisplayVideoState extends State<DisplayVideo> {
     super.dispose();
   }
 
+  Future<bool> started() async {
+    await _controller.initialize();
+    await _controller.setLooping(true);
+    await _controller.play();
+    return true;
+  }
+
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: initializeVideoPlayerFuture,
+    return FutureBuilder<bool>(
+      future: started(),
       builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.done) {
+        if (snapshot.data ?? false) {
           return AspectRatio(
             aspectRatio: _controller.value.aspectRatio,
-            child: VideoPlayer(
-              _controller,
-            ),
+            child: VideoPlayer(_controller),
           );
         } else {
           return const Center(
